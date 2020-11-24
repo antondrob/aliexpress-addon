@@ -29,6 +29,7 @@ class Aliexpress_Addon
         add_action('add_meta_boxes', [$this, 'add_meta_boxes']);
         add_action('save_post_product', [$this, 'save_post_product'], 10, 3);
         add_action('woocommerce_variation_options', [$this, 'woocommerce_variation_options'], 10, 3);
+        add_action('woocommerce_save_product_variation', [$this, 'woocommerce_save_product_variation'], 10, 2);
         add_action('admin_enqueue_scripts', [$this, 'admin_enqueue_scripts']);
     }
 
@@ -84,6 +85,19 @@ class Aliexpress_Addon
             'label' => __('Aliexpress Variation Attribute', 'woocommerce'),
             'value' => get_post_meta($variation->ID, '_vi_wad_aliexpress_variation_attr', true)
         ));
+    }
+
+    public function woocommerce_save_product_variation($variation_id, $i)
+    {
+        $_vi_wad_aliexpress_variation_id = $_POST['_vi_wad_aliexpress_variation_id'][$i];
+        if ( ! empty( $_vi_wad_aliexpress_variation_id ) ) {
+            update_post_meta( $variation_id, '_vi_wad_aliexpress_variation_id', esc_attr( $_vi_wad_aliexpress_variation_id ) );
+        } else delete_post_meta( $variation_id, '_vi_wad_aliexpress_variation_id' );
+
+        $_vi_wad_aliexpress_variation_attr = $_POST['_vi_wad_aliexpress_variation_attr'][$i];
+        if ( ! empty( $_vi_wad_aliexpress_variation_attr ) ) {
+            update_post_meta( $variation_id, '_vi_wad_aliexpress_variation_attr', esc_attr( $_vi_wad_aliexpress_variation_attr ) );
+        } else delete_post_meta( $variation_id, '_vi_wad_aliexpress_variation_attr' );
     }
 
     public function admin_enqueue_scripts()
