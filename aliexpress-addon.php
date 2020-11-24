@@ -59,14 +59,14 @@ class Aliexpress_Addon
             delete_post_meta($post_id, '_vi_wad_aliexpress_product_id');
         else
             update_post_meta($post_id, '_vi_wad_aliexpress_product_id', $_POST['aliexpress-product-id']);
-        if (empty($_POST['_vi_wad_aliexpress_variation_id']))
+        if (empty($_POST['parent_aliexpress_variation_id']))
             delete_post_meta($post_id, '_vi_wad_aliexpress_variation_id');
         else
-            update_post_meta($post_id, '_vi_wad_aliexpress_variation_id', $_POST['_vi_wad_aliexpress_variation_id']);
-        if (empty($_POST['_vi_wad_aliexpress_variation_attr']))
+            update_post_meta($post_id, '_vi_wad_aliexpress_variation_id', $_POST['parent_aliexpress_variation_id']);
+        if (empty($_POST['parent_aliexpress_variation_attr']))
             delete_post_meta($post_id, '_vi_wad_aliexpress_variation_attr');
         else
-            update_post_meta($post_id, '_vi_wad_aliexpress_variation_attr', $_POST['_vi_wad_aliexpress_variation_attr']);
+            update_post_meta($post_id, '_vi_wad_aliexpress_variation_attr', $_POST['parent_aliexpress_variation_attr']);
     }
 
     public function woocommerce_variation_options($loop, $variation_data, $variation)
