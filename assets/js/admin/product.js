@@ -14,7 +14,7 @@ jQuery(document).ready(function ($) {
             },
             beforeSend: () => {
                 $('#aliexpress-api-data').html('');
-                button.text('Getting...');
+                button.text('Getting');
             },
             success: (response) => {
                 if (response.status === 'success') {
