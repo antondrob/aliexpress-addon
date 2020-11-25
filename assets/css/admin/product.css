@@ -1,3 +1,7 @@
 #aliexpress-product-id ol {
     list-style-type: none;
 }
+
+#aliexpress-product-id ol li {
+    word-break: break-all;
+}

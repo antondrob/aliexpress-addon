@@ -33,7 +33,7 @@ jQuery(document).ready(function ($) {
                         });
                     }
                 } else {
-                    if (data.message !== 'undefined') {
+                    if (response.message !== 'undefined') {
                         alert(data.message);
                     } else {
                         console.log(response);
